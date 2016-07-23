@@ -63,3 +63,9 @@ ggplot(a10Df, aes(x = year, y = value)) +
                 axis.ticks = element_line(colour = "black", size = 0.5),
                 axis.ticks.length = unit(0.25, "cm")
         )
+
+#### Seasonal plots Figure 2.3 ####
+# original plot
+seasonplot(a10,ylab="$ million", xlab="Year",
+           main="Seasonal plot: antidiabetic drug sales",
+           year.labels=TRUE, year.labels.left=TRUE, col=1:20, pch=19)
