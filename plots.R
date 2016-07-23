@@ -2,17 +2,22 @@ library(fpp)
 library(ggplot2)
 library(zoo)
 library(reshape2)
+#### Load data ####
 data("melsyd")
+
+#### Time plots Figure 2.1 ####
+# original plot
 plot(melsyd[,"Economy.Class"],
      main="Economy class passengers: Melbourne-Sydney",
      xlab="Year",ylab="Thousands")
-class(melsyd)
-summary(melsyd)
-str(melsyd)
-typeof(melsyd)
+
+# convert ts to data frame
 melsydDf <- data.frame(year = index(melsyd), value = melt(melsyd)[, 3])
+
+# ggplot2
 ggplot(melsydDf, aes(x = year, y = value)) + 
         geom_line() + 
+        scale_y_continuous(breaks = seq(0,30, by = 5)) + 
         labs(
                 title = "Economy class passengers: Melbourne-Sydney",
                 x = "Year",
@@ -20,12 +25,17 @@ ggplot(melsydDf, aes(x = year, y = value)) +
         ) + 
         theme(
                 panel.border = element_rect(color = "black", fill = NA),
-                panel.background = element_rect(fill = "white")
+                panel.background = element_rect(fill = "white"),
+                plot.title = element_text(size = 15, face = "bold", margin = margin(t = 10, b = 20)),
+                plot.margin = unit(c(0.5, 1, 0.5, 0.1), "cm"),
+                axis.text.y = element_text(size = 13, angle = 90, hjust = 0.5, margin = margin(l = 10, r = 10), color = "black"),
+                axis.text.x = element_text(size = 13, margin = margin(t = 10, b = 10), color = "black"),
+                axis.title = element_text(size = 13),
+                axis.ticks = element_line(colour = "black", size = 0.5),
+                axis.ticks.length = unit(0.25, "cm")
                 
         )
 
 
 
-melsydMeltedDf <- melt(melsyd)
-plot(melsydMeltedDf[,3])
-summary(melsydMeltedDf[,3])
+
