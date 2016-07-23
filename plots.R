@@ -171,17 +171,3 @@ ggplot(a10DfJan, aes(x = count, y = value)) + geom_line() +
 
 
 
-  
-ggplot(a10DfJan, aes(x = count, y = value)) + geom_line() + 
-        geom_line(aes(x = a10DfFeb$count, y = a10DfFeb$value)) + 
-        geom_line(aes(x = a10DfMar$count, y = a10DfMar$value)) + 
-        geom_line(aes(x = a10DfApr$count, y = a10DfApr$value)) + 
-        geom_line(aes(x = a10DfMay$count, y = a10DfMay$value)) + 
-        geom_line(aes(x = a10DfJun$count, y = a10DfJun$value)) + 
-        geom_line(aes(x = a10DfJul$count, y = a10DfJul$value)) + 
-        geom_line(aes(x = a10DfAug$count, y = a10DfAug$value)) + 
-        geom_line(aes(x = a10DfSep$count, y = a10DfSep$value)) + 
-        geom_line(aes(x = a10DfOct$count, y = a10DfOct$value)) + 
-        geom_line(aes(x = a10DfNov$count, y = a10DfNov$value)) + 
-        geom_line(aes(x = a10DfDec$count, y = a10DfDec$value))
-
